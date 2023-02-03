@@ -1,13 +1,14 @@
 import React from "react";
 import { SafeAreaView } from "react-native";
-import MainScreen from "./src/screens/app/MainScreen";
-import Time from "./src/components/Time";
+
+import Splash from './src/screens/auth/Splash';
 
 const App = () => {
   return (
     <SafeAreaView>
-      <MainScreen title="Time" /><Time />
+      <Splash />
     </SafeAreaView>
   );
-}
+};
+
 export  default App;
