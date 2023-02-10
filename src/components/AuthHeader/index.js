@@ -15,4 +15,4 @@ const AuthHeader = ({title, onBackPress}) => {
     </View>
   );
 };
-export default AuthHeader;
+export default React.memo(AuthHeader);
