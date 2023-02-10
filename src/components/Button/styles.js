@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native";
-import { colors } from "../../utils/colors";
+import {StyleSheet} from 'react-native';
+import {colors} from '../../utils/colors';
 
 export const styles = StyleSheet.create({
   container: {
@@ -8,12 +8,12 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 8,
     borderRadius: 8,
     width: '100%',
-    marginTop: 54
+    marginTop: 54,
   },
   title: {
     color: colors.white,
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: 16,
-    fontWeight: "bold"
-  }
-})
+    fontWeight: 'bold',
+  },
+});
