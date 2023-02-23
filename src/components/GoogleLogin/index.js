@@ -1,17 +1,17 @@
-import React from 'react';
-import {Image, TouchableOpacity} from 'react-native';
-import {styles} from './styles';
+import React from "react";
+import { Image, TouchableOpacity } from "react-native";
+import { styles } from "./styles";
 import {
   GoogleSignin,
   statusCodes,
-} from '@react-native-google-signin/google-signin';
+} from "@react-native-google-signin/google-signin";
 
 const GoogleLogin = () => {
   const signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
-      this.setState({userInfo});
+      this.setState({ userInfo });
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
@@ -29,7 +29,7 @@ const GoogleLogin = () => {
       onPress={signIn}
       activeOpacity={0.6}
       style={styles.container}>
-      <Image source={require('../../assets/google.png')} style={styles.image} />
+      <Image source={require("../../assets/google.png")} style={styles.image} />
     </TouchableOpacity>
   );
 };

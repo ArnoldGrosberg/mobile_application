@@ -18,8 +18,8 @@ const Signup = ({ navigation }) => {
   };
 
   const onSignin = () => {
-    navigation.navigate('Signin');
-  }
+    navigation.navigate("Signin");
+  };
 
   return (
     <SafeAreaView>

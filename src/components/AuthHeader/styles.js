@@ -1,11 +1,11 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from "react-native";
 
-import {colors} from '../../utils/colors';
+import { colors } from "../../utils/colors";
 
 export const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 54,
   },
   image: {
@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   title: {
     color: colors.blue,
     fontSize: 26,
-    fontWeight: '500',
+    fontWeight: "500",
     paddingHorizontal: 16,
   },
 });

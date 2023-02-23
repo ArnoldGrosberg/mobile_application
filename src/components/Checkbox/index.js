@@ -1,9 +1,9 @@
-import React from 'react';
-import {TouchableOpacity, View, Image} from 'react-native';
+import React from "react";
+import { TouchableOpacity, View, Image } from "react-native";
 
-import {styles} from './styles';
+import { styles } from "./styles";
 
-const Checkbox = ({checked, onCheck}) => {
+const Checkbox = ({ checked, onCheck }) => {
   return (
     <TouchableOpacity
       activeOpacity={0.6}
@@ -13,7 +13,7 @@ const Checkbox = ({checked, onCheck}) => {
         <View style={styles.innerContainer}>
           <Image
             style={styles.checkIcon}
-            source={require('../../assets/check.png')}
+            source={require("../../assets/check.png")}
           />
         </View>
       ) : null}

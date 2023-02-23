@@ -11,6 +11,6 @@ const Profile = () => {
       </View>
     </SafeAreaView>
   );
-}
+};
 
 export default React.memo(Profile);

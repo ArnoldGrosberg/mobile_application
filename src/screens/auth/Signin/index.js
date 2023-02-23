@@ -9,7 +9,7 @@ import GoogleLogin from "../../../components/GoogleLogin";
 
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const Signup = ({navigation}) => {
+const Signup = ({ navigation }) => {
   const [] = useState(false);
 
   const onBack = () => {
@@ -17,8 +17,8 @@ const Signup = ({navigation}) => {
   };
 
   const onSignup = () => {
-    navigation.navigate('Signup');
-  }
+    navigation.navigate("Signup");
+  };
 
   return (
     <SafeAreaView>
@@ -26,7 +26,7 @@ const Signup = ({navigation}) => {
         <AuthHeader onBackPress={onBack} title="Sign In" />
         <Input label="Email" placeholder="example@gmail.com" />
         <Input label="Password" placeholder="******" isPassword />
-        <Button style={styles.button} onPress={() => console.log('Clicked')} title="Sign In" />
+        <Button style={styles.button} onPress={() => console.log("Clicked")} title="Sign In" />
         <Separator text="Or Sign in with" />
         <GoogleLogin />
         <Text style={styles.footerText}>
