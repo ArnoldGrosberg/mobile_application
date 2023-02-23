@@ -1,23 +1,23 @@
-import React from 'react';
-import {Text, View, Image, Pressable} from 'react-native';
-import Button from '../../../components/Button';
-import {styles} from './styles';
+import React from "react";
+import { Text, View, Image, Pressable } from "react-native";
+import Button from "../../../components/Button";
+import { styles } from "./styles";
 
-const Splash = ({navigation}) => {
-  console.log('navigation => ', navigation)
+const Splash = ({ navigation }) => {
+  console.log("navigation => ", navigation);
 
   const onSignup = () => {
-    navigation.navigate('Signup');
-  }
+    navigation.navigate("Signup");
+  };
   const onSignin = () => {
-    navigation.navigate('Signin');
-  }
+    navigation.navigate("Signin");
+  };
   return (
     <View style={styles.container}>
       <Image
         resizeMode="contain"
         style={styles.image}
-        source={require('../../../assets/Splash_image.png')}
+        source={require("../../../assets/Splash_image.png")}
       />
       <View stlye={styles.titleContainer}>
         <Text style={styles.title}>You'll find</Text>

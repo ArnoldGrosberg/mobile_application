@@ -1,9 +1,9 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import React from "react";
+import { View, Text } from "react-native";
 
-import {styles} from './styles';
+import { styles } from "./styles";
 
-const Separator = ({text}) => {
+const Separator = ({ text }) => {
   return (
     <View style={styles.container}>
       <View style={styles.line} />
