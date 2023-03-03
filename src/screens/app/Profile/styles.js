@@ -9,13 +9,14 @@ export const styles = StyleSheet.create({
   },
   name: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     color: colors.black,
     marginBottom: 12,
   },
   email: {
     fontSize: 14,
     color: colors.grey,
+    marginBottom: 16,
   },
   content: {
     flex: 1,
