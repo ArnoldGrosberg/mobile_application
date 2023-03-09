@@ -8,6 +8,9 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     height: "100%",
   },
+  button: {
+    flex: 0,
+  },
   image: {
     width: "100%",
     height: 200,

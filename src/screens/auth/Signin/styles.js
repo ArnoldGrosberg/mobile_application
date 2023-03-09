@@ -19,6 +19,7 @@ export const styles = StyleSheet.create({
   },
   button: {
     marginVertical: 20,
+    flex: 0,
   },
   footerText: {
     color: colors.blue,

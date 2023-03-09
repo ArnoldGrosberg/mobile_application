@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import Splash from "./src/screens/auth/Splash";
 import Signup from "./src/screens/auth/Signup";
@@ -28,15 +28,18 @@ import Config from "react-native-config";
 import { colors } from "./src/utils/colors";
 import { Image } from "react-native";
 
+export const UserContext = React.createContext();
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 const ProfileStack = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Profile" component={Profile} options={{headerShown: false}} />
-      <Stack.Screen name="Settings" component={Settings} options={{headerShown: false}} />
-      <Stack.Screen name="CreateListing" component={CreateListing} options={{headerShown: false}} />
+      <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
+      <Stack.Screen name="Settings" component={Settings} options={{ headerShown: false }} />
+      <Stack.Screen name="CreateListing" component={CreateListing} options={{ headerShown: false }} />
     </Stack.Navigator>
-  )
-}
+  );
+};
 
 const Tabs = () => {
   return (
@@ -69,14 +72,21 @@ const Tabs = () => {
 };
 
 const App = () => {
-  const isSignedIn = true;
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    (async () => {
+      const accessToken = await AsyncStorage.getItem("auth_token");
+      setUser({ accessToken });
+    })();
+  }, []);
 
   useEffect(() => {
     GoogleSignin.configure({
       scopes: ["https://www.googleapis.com/auth/drive.readonly"],
-      webClientId: Config.GOOGLE_WEB_CLIENT_ID,
+      webClientId: "109328014436-vh99fictombck1dtpb524t684pg3oqtr.apps.googleusercontent.com",
       offlineAccess: true,
-      iosClientId: Config.GOOGLE_IOS_CLIENT_ID,
+      iosClientId: "109328014436-8t2vtor5fa1v279e4ltrltacfud15fbq.apps.googleusercontent.com",
     });
   }, []);
 
@@ -88,25 +98,27 @@ const App = () => {
 
   return (
     <SafeAreaProvider>
-      <NavigationContainer theme={theme}>
-        <Stack.Navigator>
-          {
-            isSignedIn ? (
-              <>
-                <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
-                <Stack.Screen name="ProductDetails" component={ProductDetails}
-                              options={{ headerShown: false }} />
-              </>
-            ) : (
-              <>
-                <Stack.Screen name="Splash" component={Splash} options={{ headerShown: false }} />
-                <Stack.Screen name="Signup" component={Signup} options={{ headerShown: false }} />
-                <Stack.Screen name="Signin" component={Signin} options={{ headerShown: false }} />
-              </>
-            )
-          }
-        </Stack.Navigator>
-      </NavigationContainer>
+      <UserContext.Provider value={{ user, setUser }}>
+        <NavigationContainer theme={theme}>
+          <Stack.Navigator>
+            {
+              user?.accessToken ? (
+                <>
+                  <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
+                  <Stack.Screen name="ProductDetails" component={ProductDetails}
+                                options={{ headerShown: false }} />
+                </>
+              ) : (
+                <>
+                  <Stack.Screen name="Splash" component={Splash} options={{ headerShown: false }} />
+                  <Stack.Screen name="Signup" component={Signup} options={{ headerShown: false }} />
+                  <Stack.Screen name="Signin" component={Signin} options={{ headerShown: false }} />
+                </>
+              )
+            }
+          </Stack.Navigator>
+        </NavigationContainer>
+      </UserContext.Provider>
     </SafeAreaProvider>
   );
 };
